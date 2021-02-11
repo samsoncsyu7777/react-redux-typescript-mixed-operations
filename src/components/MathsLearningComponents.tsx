@@ -11,41 +11,42 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import myTheme from "../themes/myTheme";
 
 const useStyles = makeStyles((theme: Theme) =>
-  createStyles({  headingSelectRow: {
-    flexDirection: "row",
-    display: "flex",
-    padding: "0.5vw",
-    paddingBottom: "1.4vh",
-  },
-  selectLabel: {
-    fontSize: "1.8vw",
-    color: myTheme.color.myBlack,
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "3.6vw",
+  createStyles({
+    headingSelectRow: {
+      flexDirection: "row",
+      display: "flex",
+      padding: "0.5vw",
+      paddingBottom: "1.4vh",
     },
-  },
-  selectText: {
-    fontSize: "1.4vw",
-    color: myTheme.color.myBlue,
-    height: "2vw",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "2.8vw",
-      height: "4vw",
+    selectLabel: {
+      fontSize: "1.8vw",
+      color: myTheme.color.myBlack,
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "3.6vw",
+      },
     },
-  },
-  selectWidth: {
-    width: "12vw",
-    [theme.breakpoints.down("sm")]: {
-      width: "24vw",
+    selectText: {
+      fontSize: "1.4vw",
+      color: myTheme.color.myBlue,
+      height: "2vw",
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "2.8vw",
+        height: "4vw",
+      },
     },
-  },
-  selectIcon: {
-    fontSize: "2vw",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "4vw",
+    selectWidth: {
+      width: "12vw",
+      [theme.breakpoints.down("sm")]: {
+        width: "24vw",
+      },
     },
-  },
-}));
+    selectIcon: {
+      fontSize: "2vw",
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "4vw",
+      },
+    },
+  }));
 
 interface IMLComponentsOwnProps {
   selectLabel: string;
@@ -55,8 +56,8 @@ interface IMLComponentsOwnProps {
 }
 
 export const HeadingSelect: React.FC<IMLComponentsOwnProps> = ({ selectLabel, selectIndex, setItemIndex, itemsArray }): JSX.Element => {
-  const handleSelect = (event: ChangeEvent<{ name?: string | undefined; value: unknown; }> | undefined): void => {
-    let selectedValue = event? event.target.value: selectIndex;
+  const handleSelect: (event: ChangeEvent<{ name?: string; value: unknown;}> | undefined) => void = (event: ChangeEvent<{ name?: string; value: unknown; }> | undefined): void => {
+    let selectedValue: number | unknown = event ? event.target.value : selectIndex;
     if (typeof selectedValue === "number") {
       setItemIndex(selectedValue);
     }

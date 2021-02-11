@@ -39,13 +39,17 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface IKeypadComponentsOwnProps {
   handleClick: (arg0: string) => void;
+  acceptDecimal: boolean;
 }
 
-export const MyKeypad: React.FC<IKeypadComponentsOwnProps> = ({ handleClick }): JSX.Element => {
-  const keypadTexts = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  const keypadColors = [myTheme.color.red, myTheme.color.orange, myTheme.color.yellow, myTheme.color.lime, myTheme.color.green, myTheme.color.cyan, myTheme.color.blue, myTheme.color.purple];
-  var randomIndex = Math.floor(Math.random() * keypadColors.length);
-
+export const MyKeypad: React.FC<IKeypadComponentsOwnProps> = ({ handleClick, acceptDecimal }): JSX.Element => {
+  const keypadTexts: Array<string> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "-", "×", "÷"];
+  const keypadColors: Array<string> = [myTheme.color.red, myTheme.color.orange, myTheme.color.yellow, myTheme.color.lime, myTheme.color.green, myTheme.color.cyan, myTheme.color.blue, myTheme.color.purple];
+  let randomIndex: number = Math.floor(Math.random() * keypadColors.length);
+  if (acceptDecimal) {
+    keypadTexts.push(".");    
+  }
+  keypadTexts.push("<-");
   const classes = useStyles();
 
   return (
@@ -53,7 +57,7 @@ export const MyKeypad: React.FC<IKeypadComponentsOwnProps> = ({ handleClick }): 
       <Grid className={classes.centerRow}>
         {
           keypadTexts.map((key, index) => {
-            if (index < 5) {
+            if (index < 8) {
               return <Button
                 key={index}
                 className={classes.keypadKey}
@@ -72,7 +76,7 @@ export const MyKeypad: React.FC<IKeypadComponentsOwnProps> = ({ handleClick }): 
       <Grid className={classes.centerRow}>
         {
           keypadTexts.map((key, index) => {
-            if (index > 4) {
+            if (index > 7) {
               return <Button
                 key={index}
                 className={classes.keypadKey}

@@ -5,29 +5,28 @@ export const pagesStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
   },
-  endRow: {
-    display: "flex",
-    justifyContent: "flex-end",
-  },
   formulaColumn: {
+    width: "65vw",
     alignSelf: "center",
-  },
-  spaceGrid: {
-    height: "2vw",
+    [theme.breakpoints.down("sm")]: {
+      width: "90vw",
+      maxWidth: "95vw",
+    },
   },
   formulaLine: {
     fontSize: "2.5vw",
     letterSpacing: "0.6vw",
     textAlign: "left",
     justifyContent: "flex-start",
+    overflow: 'auto',
     [theme.breakpoints.down("sm")]: {
       fontSize: "5vw",
     },
   },
   formulaBox: {
-    width: "75vw",
+    width: "60vw",
     [theme.breakpoints.down("sm")]: {
-      width: "90vw",
+      width: "82vw",
     }
   },
   verticalCenterRow: {
@@ -45,14 +44,14 @@ export const pagesStyles = makeStyles((theme) => ({
     },
   },
   okButton: {
-    height: "4vw",
-    width: "7vw",
-    fontSize: "1vw",
+    height: "5vw",
+    width: "6vw",
+    fontSize: "2vw",
     margin: "0.5vw",
     [theme.breakpoints.down("sm")]: {
-      height: "8vw",
-      width: "14vw",
-      fontSize: "2vw",
+      height: "10vw",
+      width: "12vw",
+      fontSize: "4vw",
     },
   },
   resetArrow: {
