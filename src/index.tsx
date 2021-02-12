@@ -4,15 +4,18 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import './index.css';
 import MathsLearning from './pages/MathsLearning';
 import reportWebVitals from './reportWebVitals';
-
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 ReactDOM.render(
+  <Provider store={store}>
     <BrowserRouter>
-        <Route
-          exact
-          path='/'
-          render={(props) => <MathsLearning {...props} />}
-        />
-    </BrowserRouter>,
+      <Route
+        exact
+        path='/'
+        render={(props) => <MathsLearning {...props} />}
+      />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
 

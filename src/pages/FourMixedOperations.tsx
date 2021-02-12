@@ -4,6 +4,7 @@ import {
   Typography,
   Button,
 } from "@material-ui/core";
+import { useSelector, RootStateOrAny } from "react-redux";
 import { AlertSnackbar } from "../components/AlertComponents";
 import { MyFrame } from "../components/HeadingComponents";
 import { MyKeypad } from "../components/KeypadComponents";
@@ -20,7 +21,8 @@ interface ILongDivisionOwnProps {
 }
 
 //×÷👍👍🏻
-export const FourMixedOperations: React.FC<ILongDivisionOwnProps> = ({ languageIndex, topic, learningTool, topicIndex, learningToolIndex }): JSX.Element => {
+export const FourMixedOperations: React.FC<ILongDivisionOwnProps> = ({ topic, learningTool }): JSX.Element => {
+  const { languageIndex, topicIndex, learningToolIndex } = useSelector((state: RootStateOrAny) => state.setting);
   const [openAlert, setOpenAlert] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [severity, setSeverity] = useState<"error" | "success" | "info" | "warning">("error");

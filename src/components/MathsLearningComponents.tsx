@@ -51,8 +51,10 @@ const useStyles = makeStyles((theme: Theme) =>
 interface IMLComponentsOwnProps {
   selectLabel: string;
   selectIndex: number;
-  setItemIndex: Dispatch<SetStateAction<number>>;
-  itemsArray: Array<string>;
+  setItemIndex: (value: number) => {
+    payload: any;
+    type: string;
+  };  itemsArray: Array<string>;
 }
 
 export const HeadingSelect: React.FC<IMLComponentsOwnProps> = ({ selectLabel, selectIndex, setItemIndex, itemsArray }): JSX.Element => {
