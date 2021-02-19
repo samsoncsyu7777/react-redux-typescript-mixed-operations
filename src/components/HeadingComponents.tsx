@@ -1,16 +1,11 @@
 import React from "react";
-import {
-  Grid,
-  Typography,
-} from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import myTheme from "../themes/myTheme";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    frame: {
-
-    },
+    frame: {},
     centerRow: {
       display: "flex",
       justifyContent: "center",
@@ -29,14 +24,20 @@ const useStyles = makeStyles((theme: Theme) =>
         fontSize: "3.2vw",
       },
     },
-  }));
+  })
+);
 
 interface IHeadingComponentsOwnProps {
   topic: string;
   learningTool: string;
 }
 
-export const MyFrame: React.FC<IHeadingComponentsOwnProps> = ({ children, topic, learningTool, ...otherProps }): JSX.Element => {
+export const MyFrame: React.FC<IHeadingComponentsOwnProps> = ({
+  children,
+  topic,
+  learningTool,
+  ...otherProps
+}): JSX.Element => {
   const classes = useStyles();
 
   return (
@@ -49,5 +50,5 @@ export const MyFrame: React.FC<IHeadingComponentsOwnProps> = ({ children, topic,
       </Grid>
       {children}
     </Grid>
-  )
-}
+  );
+};

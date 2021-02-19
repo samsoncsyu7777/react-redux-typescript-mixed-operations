@@ -1,4 +1,4 @@
-import { makeStyles} from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 export const pagesStyles = makeStyles((theme) => ({
   centerRow: {
@@ -13,12 +13,21 @@ export const pagesStyles = makeStyles((theme) => ({
       maxWidth: "95vw",
     },
   },
+  spaceGrid: {
+    height: "2vw",
+  },
+  equalSign: {
+    fontSize: "2.5vw",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "5vw",
+    },
+  },
   formulaLine: {
     fontSize: "2.5vw",
     letterSpacing: "0.6vw",
     textAlign: "left",
     justifyContent: "flex-start",
-    overflow: 'auto',
+    overflow: "auto",
     [theme.breakpoints.down("sm")]: {
       fontSize: "5vw",
     },
@@ -27,7 +36,7 @@ export const pagesStyles = makeStyles((theme) => ({
     width: "60vw",
     [theme.breakpoints.down("sm")]: {
       width: "82vw",
-    }
+    },
   },
   verticalCenterRow: {
     display: "flex",
@@ -38,7 +47,7 @@ export const pagesStyles = makeStyles((theme) => ({
   },
   commonText: {
     fontSize: "2vw",
-    margin: '0.5vw',
+    margin: "0.5vw",
     [theme.breakpoints.down("sm")]: {
       fontSize: "4vw",
     },

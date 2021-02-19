@@ -6,12 +6,10 @@ export const theme = createMuiTheme({
     fontSize: 30,
     h1: {
       // could customize the h1 variant as well
-    }
+    },
   },
   palette: {
     primary: { main: "#FF0000" },
-    secondary: { main: "#0055FF"},
+    secondary: { main: "#0055FF" },
   },
-  
 });
-

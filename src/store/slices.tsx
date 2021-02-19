@@ -4,7 +4,7 @@ export const counterSlice = createSlice({
   name: "setting",
 
   initialState: {
-    languageIndex: 2,
+    languageIndex: 0,
     bibleVersionIndex: 0,
     topicIndex: 0,
     learningToolIndex: 0,
@@ -12,7 +12,7 @@ export const counterSlice = createSlice({
 
   reducers: {
     setLanguageIndex: (state, action: PayloadAction<number>) => {
-      state.languageIndex = action.payload || 0; 
+      state.languageIndex = action.payload || 0;
     },
     setBibleVersionIndex: (state, action: PayloadAction<number>) => {
       state.bibleVersionIndex = action.payload || 0;
@@ -22,7 +22,6 @@ export const counterSlice = createSlice({
     },
     setLearningToolIndex: (state, action: PayloadAction<number>) => {
       state.learningToolIndex = action.payload || 0;
-    }
-  }
-
-})
+    },
+  },
+});

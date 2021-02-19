@@ -1,11 +1,6 @@
-import React, { ChangeEvent, Dispatch, SetStateAction } from 'react';
+import React, { ChangeEvent } from "react";
 
-import {
-  Grid,
-  Select,
-  InputLabel,
-  MenuItem,
-} from "@material-ui/core";
+import { Grid, Select, InputLabel, MenuItem } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
 import myTheme from "../themes/myTheme";
@@ -46,20 +41,35 @@ const useStyles = makeStyles((theme: Theme) =>
         fontSize: "4vw",
       },
     },
-  }));
+  })
+);
 
 interface IMLComponentsOwnProps {
   selectLabel: string;
   selectIndex: number;
-  setItemIndex: (value: number) => {
+  setItemIndex: (
+    value: number
+  ) => {
     payload: any;
     type: string;
-  };  itemsArray: Array<string>;
+  };
+  itemsArray: Array<string>;
 }
 
-export const HeadingSelect: React.FC<IMLComponentsOwnProps> = ({ selectLabel, selectIndex, setItemIndex, itemsArray }): JSX.Element => {
-  const handleSelect: (event: ChangeEvent<{ name?: string; value: unknown;}> | undefined) => void = (event: ChangeEvent<{ name?: string; value: unknown; }> | undefined): void => {
-    let selectedValue: number | unknown = event ? event.target.value : selectIndex;
+export const HeadingSelect: React.FC<IMLComponentsOwnProps> = ({
+  selectLabel,
+  selectIndex,
+  setItemIndex,
+  itemsArray,
+}): JSX.Element => {
+  const handleSelect: (
+    event: ChangeEvent<{ name?: string; value: unknown }> | undefined
+  ) => void = (
+    event: ChangeEvent<{ name?: string; value: unknown }> | undefined
+  ): void => {
+    let selectedValue: number | unknown = event
+      ? event.target.value
+      : selectIndex;
     if (typeof selectedValue === "number") {
       setItemIndex(selectedValue);
     }
@@ -81,12 +91,14 @@ export const HeadingSelect: React.FC<IMLComponentsOwnProps> = ({ selectLabel, se
         value={selectIndex}
         onChange={handleSelect}
       >
-        {
-          itemsArray.map((language, index) => {
-            return <MenuItem key={index} className={classes.selectText} value={index}>{language}</MenuItem>
-          })
-        }
+        {itemsArray.map((language, index) => {
+          return (
+            <MenuItem key={index} className={classes.selectText} value={index}>
+              {language}
+            </MenuItem>
+          );
+        })}
       </Select>
     </Grid>
-  )
-}
+  );
+};

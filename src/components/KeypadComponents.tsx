@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Grid,
-} from "@material-ui/core";
+import { Button, Grid } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import myTheme from "../themes/myTheme";
 
@@ -35,19 +32,47 @@ const useStyles = makeStyles((theme: Theme) =>
         fontSize: "4vw",
       },
     },
-  }));
+  })
+);
 
 interface IKeypadComponentsOwnProps {
   handleClick: (arg0: string) => void;
   acceptDecimal: boolean;
 }
 
-export const MyKeypad: React.FC<IKeypadComponentsOwnProps> = ({ handleClick, acceptDecimal }): JSX.Element => {
-  const keypadTexts: Array<string> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "-", "×", "÷"];
-  const keypadColors: Array<string> = [myTheme.color.red, myTheme.color.orange, myTheme.color.yellow, myTheme.color.lime, myTheme.color.green, myTheme.color.cyan, myTheme.color.blue, myTheme.color.purple];
+export const MyKeypad: React.FC<IKeypadComponentsOwnProps> = ({
+  handleClick,
+  acceptDecimal,
+}): JSX.Element => {
+  const keypadTexts: Array<string> = [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "+",
+    "-",
+    "×",
+    "÷",
+  ];
+  const keypadColors: Array<string> = [
+    myTheme.color.red,
+    myTheme.color.orange,
+    myTheme.color.yellow,
+    myTheme.color.lime,
+    myTheme.color.green,
+    myTheme.color.cyan,
+    myTheme.color.blue,
+    myTheme.color.purple,
+  ];
   let randomIndex: number = Math.floor(Math.random() * keypadColors.length);
   if (acceptDecimal) {
-    keypadTexts.push(".");    
+    keypadTexts.push(".");
   }
   keypadTexts.push("<-");
   const classes = useStyles();
@@ -55,44 +80,55 @@ export const MyKeypad: React.FC<IKeypadComponentsOwnProps> = ({ handleClick, acc
   return (
     <>
       <Grid className={classes.centerRow}>
-        {
-          keypadTexts.map((key, index) => {
-            if (index < 8) {
-              return <Button
+        {keypadTexts.map((key, index) => {
+          if (index < 8) {
+            return (
+              <Button
                 key={index}
                 className={classes.keypadKey}
                 value={key}
                 variant="contained"
                 style={{
                   color: myTheme.color.myBlack,
-                  backgroundColor: keypadColors[(index + randomIndex) % keypadColors.length]
+                  backgroundColor:
+                    keypadColors[(index + randomIndex) % keypadColors.length],
                 }}
-                onClick={() => { handleClick(key) }}
-              >{key}</Button>
-            }
-          })
-        }
+                onClick={() => {
+                  handleClick(key);
+                }}
+              >
+                {key}
+              </Button>
+            );
+          }
+        })}
       </Grid>
       <Grid className={classes.centerRow}>
-        {
-          keypadTexts.map((key, index) => {
-            if (index > 7) {
-              return <Button
+        {keypadTexts.map((key, index) => {
+          if (index > 7) {
+            return (
+              <Button
                 key={index}
                 className={classes.keypadKey}
                 value={key}
                 variant="contained"
                 style={{
                   color: myTheme.color.myBlack,
-                  backgroundColor: keypadColors[(index + randomIndex + 5) % keypadColors.length]
+                  backgroundColor:
+                    keypadColors[
+                      (index + randomIndex + 5) % keypadColors.length
+                    ],
                 }}
-                onClick={() => { handleClick(key) }}
-              >{key}</Button>
-            }
-          })
-        }
+                onClick={() => {
+                  handleClick(key);
+                }}
+              >
+                {key}
+              </Button>
+            );
+          }
+        })}
       </Grid>
     </>
-  )
-}
-
+  );
+};
